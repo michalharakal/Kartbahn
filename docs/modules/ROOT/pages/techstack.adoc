@@ -1,0 +1,9 @@
+= Frameworks and libraries used
+
+* https://kotlinlang.org/[Kotlin]
+* https://kotlinlang.org/docs/reference/coroutines-overview.html[Kotlin Coroutines]
+* https://github.com/Kotlin/kotlinx.serialization[Kotlinx Serialization]
+* https://github.com/ktorio/ktor[Ktor client library]
+* https://developer.android.com/topic/libraries/architecture/index.html[Android Architecture Components]
+* https://developer.android.com/jetpack/compose[Jetpack Compose]
+* https://developer.apple.com/documentation/swiftui[SwiftUI]

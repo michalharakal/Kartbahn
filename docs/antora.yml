@@ -1,0 +1,5 @@
+name: kartbahn
+title: Kartbahn
+version: dev
+nav:
+- modules/ROOT/nav.adoc

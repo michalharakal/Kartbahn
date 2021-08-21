@@ -1,0 +1,23 @@
+site:
+  title: Kartbahn
+  start_page: kartbahn::index.adoc
+content:
+  sources:
+    - url: ./
+      start_path: ./docs
+asciidoc:
+  attributes:
+    page-pagination: ''
+    experimental: ''
+    idprefix: '@'
+    idseparator: '-@'
+    table-caption: false
+    example-caption: false
+    listing-caption: false
+    hide-uri-scheme: '@'
+ui:
+  bundle:
+    url: docs/ui-bundle.zip
+    snapshot: true
+output:
+  dir: build

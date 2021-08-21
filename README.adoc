@@ -1,4 +1,21 @@
 = Kartbahn
+:imagesdir: docs/modules/ROOT/images
 
 This is a proof of concept app written in _Kotlin_ with _Kotlin Multiplatform_ utilizing *Autobahn App API* es described here:
 https://github.com/bundesAPI/autobahn-api
+
+== Documentation
+
+For documentation we use Antora.
+
+to build it locally, you need docker running.
+
+    docker run -v $PWD:/antora:Z --rm -t antora/antora  antora-playbook.yml
+
+NOTE: use `--platform linux/amd64` for Apple Silicon Macs
+
+
+include::docs/modules/ROOT/pages/techstack.adoc[leveloffset=+1]
+
+include::docs/modules/ROOT/pages/screenshots.adoc[leveloffset=+1]
+
