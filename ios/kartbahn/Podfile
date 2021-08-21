@@ -1,0 +1,3 @@
+target 'kartbahn (iOS)' do
+    pod 'common', :path => '../../common'
+end

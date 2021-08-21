@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CC4C6A44C57A393DBAA8899 /* libPods-kartbahn (iOS).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B22383636F9ADE3A0889269 /* libPods-kartbahn (iOS).a */; };
+		D806957326D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
+		D806957426D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
+		D806957526D196F8008A537E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956126D196F6008A537E /* ContentView.swift */; };
+		D806957626D196F8008A537E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956126D196F6008A537E /* ContentView.swift */; };
+		D806957726D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
+		D806957826D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
+		D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
+		D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B22383636F9ADE3A0889269 /* libPods-kartbahn (iOS).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kartbahn (iOS).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B14626D98814D90E7A4F7914 /* Pods-kartbahn (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).debug.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		D806956026D196F6008A537E /* kartbahnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kartbahnApp.swift; sourceTree = "<group>"; };
+		D806956126D196F6008A537E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D806956226D196F8008A537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D806956726D196F8008A537E /* kartbahn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kartbahn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D806956A26D196F8008A537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D806956F26D196F8008A537E /* kartbahn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kartbahn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D806957126D196F8008A537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D806957226D196F8008A537E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D88B317F26D1AA4900525B26 /* RoadsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsContent.swift; sourceTree = "<group>"; };
+		E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).release.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D806956426D196F8008A537E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CC4C6A44C57A393DBAA8899 /* libPods-kartbahn (iOS).a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D806956C26D196F8008A537E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		147F09CC539BC2FD682A7705 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B14626D98814D90E7A4F7914 /* Pods-kartbahn (iOS).debug.xcconfig */,
+				E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D806955A26D196F6008A537E = {
+			isa = PBXGroup;
+			children = (
+				D806955F26D196F6008A537E /* Shared */,
+				D806956926D196F8008A537E /* iOS */,
+				D806957026D196F8008A537E /* macOS */,
+				D806956826D196F8008A537E /* Products */,
+				147F09CC539BC2FD682A7705 /* Pods */,
+				D960BB63D2179A0123DC06C7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D806955F26D196F6008A537E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D806956026D196F6008A537E /* kartbahnApp.swift */,
+				D806956126D196F6008A537E /* ContentView.swift */,
+				D806956226D196F8008A537E /* Assets.xcassets */,
+				D88B317F26D1AA4900525B26 /* RoadsContent.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D806956826D196F8008A537E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D806956726D196F8008A537E /* kartbahn.app */,
+				D806956F26D196F8008A537E /* kartbahn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D806956926D196F8008A537E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D806956A26D196F8008A537E /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D806957026D196F8008A537E /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D806957126D196F8008A537E /* Info.plist */,
+				D806957226D196F8008A537E /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		D960BB63D2179A0123DC06C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B22383636F9ADE3A0889269 /* libPods-kartbahn (iOS).a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D806956626D196F8008A537E /* kartbahn (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D806957B26D196F8008A537E /* Build configuration list for PBXNativeTarget "kartbahn (iOS)" */;
+			buildPhases = (
+				7FBD847CA94DC8617A00E0F1 /* [CP] Check Pods Manifest.lock */,
+				D806956326D196F8008A537E /* Sources */,
+				D806956426D196F8008A537E /* Frameworks */,
+				D806956526D196F8008A537E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kartbahn (iOS)";
+			productName = "kartbahn (iOS)";
+			productReference = D806956726D196F8008A537E /* kartbahn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D806956E26D196F8008A537E /* kartbahn (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D806957E26D196F8008A537E /* Build configuration list for PBXNativeTarget "kartbahn (macOS)" */;
+			buildPhases = (
+				D806956B26D196F8008A537E /* Sources */,
+				D806956C26D196F8008A537E /* Frameworks */,
+				D806956D26D196F8008A537E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kartbahn (macOS)";
+			productName = "kartbahn (macOS)";
+			productReference = D806956F26D196F8008A537E /* kartbahn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D806955B26D196F6008A537E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					D806956626D196F8008A537E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D806956E26D196F8008A537E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = D806955E26D196F6008A537E /* Build configuration list for PBXProject "kartbahn" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D806955A26D196F6008A537E;
+			productRefGroup = D806956826D196F8008A537E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D806956626D196F8008A537E /* kartbahn (iOS) */,
+				D806956E26D196F8008A537E /* kartbahn (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D806956526D196F8008A537E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D806957726D196F8008A537E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D806956D26D196F8008A537E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D806957826D196F8008A537E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FBD847CA94DC8617A00E0F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kartbahn (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D806956326D196F8008A537E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D806957526D196F8008A537E /* ContentView.swift in Sources */,
+				D806957326D196F8008A537E /* kartbahnApp.swift in Sources */,
+				D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D806956B26D196F8008A537E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D806957626D196F8008A537E /* ContentView.swift in Sources */,
+				D806957426D196F8008A537E /* kartbahnApp.swift in Sources */,
+				D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D806957926D196F8008A537E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D806957A26D196F8008A537E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D806957C26D196F8008A537E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14626D98814D90E7A4F7914 /* Pods-kartbahn (iOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kartbahn.ios.kartbahn;
+				PRODUCT_NAME = kartbahn;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D806957D26D196F8008A537E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.kartbahn.ios.kartbahn;
+				PRODUCT_NAME = kartbahn;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D806957F26D196F8008A537E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kartbahn.ios.kartbahn;
+				PRODUCT_NAME = kartbahn;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D806958026D196F8008A537E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kartbahn.ios.kartbahn;
+				PRODUCT_NAME = kartbahn;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D806955E26D196F6008A537E /* Build configuration list for PBXProject "kartbahn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D806957926D196F8008A537E /* Debug */,
+				D806957A26D196F8008A537E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D806957B26D196F8008A537E /* Build configuration list for PBXNativeTarget "kartbahn (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D806957C26D196F8008A537E /* Debug */,
+				D806957D26D196F8008A537E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D806957E26D196F8008A537E /* Build configuration list for PBXNativeTarget "kartbahn (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D806957F26D196F8008A537E /* Debug */,
+				D806958026D196F8008A537E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D806955B26D196F6008A537E /* Project object */;
+}

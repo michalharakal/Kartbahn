@@ -2,5 +2,5 @@ include(":android")
 include(":desktop")
 include(":web")
 include(":common")
-include(":common-ui")
+include(":common-compose-ui")
 

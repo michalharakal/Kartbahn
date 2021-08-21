@@ -16,7 +16,8 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(project(":common"))
-                implementation(project(":common-ui"))
+                implementation(project(":common-compose-ui"))
+
                 implementation(compose.desktop.currentOs)
                 implementation("io.ktor:ktor-client-apache:1.6.0")
             }

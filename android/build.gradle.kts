@@ -9,8 +9,7 @@ version = "1.0"
 
 dependencies {
     implementation(project(":common"))
-    implementation(project(":common-ui"))
-
+    implementation(project(":common-compose-ui"))
 
     // define a BOM and its version
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))

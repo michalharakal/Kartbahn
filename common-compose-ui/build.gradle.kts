@@ -32,10 +32,10 @@ kotlin {
                         strictly("1.5.0")
                     }
                 }
-                implementation("io.ktor:ktor-utils:1.6.0")
+                implementation("io.ktor:ktor-utils:1.6.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
 
-                implementation("io.ktor:ktor-client-core:1.6.0")
+                implementation("io.ktor:ktor-client-core:1.6.1")
                 implementation("io.ktor:ktor-client-json:1.6.0")
                 implementation("io.ktor:ktor-client-logging:1.6.0")
                 implementation("io.ktor:ktor-client-serialization:1.6.0")

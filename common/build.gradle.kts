@@ -3,11 +3,9 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dev.icerock.mobile.multiplatform-network-generator")
-    id("maven-publish")
+    id("org.jetbrains.kotlin.native.cocoapods")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
-
-group = "org.karbahn.common"
-version = "0.0.1"
 
 mokoNetwork {
     spec("kartbahn") {
@@ -18,7 +16,32 @@ mokoNetwork {
     }
 }
 
+version = "0.0.1"
+
+multiplatformSwiftPackage {
+    packageName("Kartbahn")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("13") }
+    }
+}
+
 kotlin {
+    val sdkName: String? = System.getenv("SDK_NAME")
+
+    val isiOSDevice = sdkName.orEmpty().startsWith("iphoneos")
+    if (isiOSDevice) {
+        iosArm64("iOS")
+    } else {
+        iosX64("iOS")
+    }
+
+    cocoapods {
+        // Configure fields required by CocoaPods.
+        summary = "Kartbahn"
+        homepage = "https://github.com/michalharakal/Kartbahn"
+    }
+
     js(IR) {
         browser()
         binaries.executable()
@@ -36,7 +59,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt") {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt") {
                     version {
                         strictly("1.5.0")
                     }
