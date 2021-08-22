@@ -14,4 +14,13 @@ class KartbahnApiTest {
             assertTrue { roads.roads!!.isNotEmpty() }
         }
     }
+
+    @Test
+    fun testRoadworks() {
+        val api = KartbahnApi()
+        runBlocking {
+            val roads = api.getRoadWorks("A3")
+            assertTrue { roads.roadworks!!.isNotEmpty() }
+        }
+    }
 }
