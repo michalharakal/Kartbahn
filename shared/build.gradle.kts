@@ -1,0 +1,155 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
+plugins {
+    id("com.android.library")
+    kotlin("multiplatform")
+    kotlin("native.cocoapods")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    id("dev.icerock.mobile.multiplatform-network-generator")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
+}
+
+mokoNetwork {
+    spec("kartbahn") {
+        inputSpec = file("${rootDir}/specs/api.yaml")
+        packageName = "org.karbahn.api"
+        isInternal = false
+        isOpen = true
+    }
+}
+
+version = "0.0.1"
+
+multiplatformSwiftPackage {
+    packageName("Kartbahn")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("13") }
+    }
+}
+
+kotlin {
+    val sdkName: String? = System.getenv("SDK_NAME")
+
+    val isiOSDevice = sdkName.orEmpty().startsWith("iphoneos")
+    if (isiOSDevice) {
+        iosArm64("iOS")
+    } else {
+        iosX64("iOS")
+    }
+
+    cocoapods {
+        // Configure fields required by CocoaPods.
+        summary = "Kartbahn"
+        homepage = "https://github.com/michalharakal/Kartbahn"
+    }
+
+    // Configure the framework which is generated internally by cocoapods plugin
+    targets.withType<KotlinNativeTarget> {
+        binaries.withType<Framework> {
+            isStatic = false // SwiftUI preview requires dynamic framework
+            transitiveExport = true
+        }
+    }
+
+    js(IR) {
+        browser()
+        binaries.executable()
+    }
+    android {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+    }
+    jvm("desktop") {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
+    sourceSets {
+        all {
+            languageSettings.apply {
+                useExperimentalAnnotation("kotlin.RequiresOptIn")
+                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            }
+        }
+    }
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt") {
+                    version {
+                        strictly("1.5.0")
+                    }
+                }
+                implementation("io.ktor:ktor-utils:1.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
+
+                implementation("io.ktor:ktor-client-core:1.6.1")
+                implementation("io.ktor:ktor-client-json:1.6.0")
+                implementation("io.ktor:ktor-client-logging:1.6.0")
+                implementation("io.ktor:ktor-client-serialization:1.6.0")
+
+                implementation("io.insert-koin:koin-core:3.1.2")
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                api("androidx.appcompat:appcompat:1.3.1")
+                api("androidx.core:core-ktx:1.6.0")
+                implementation("io.ktor:ktor-client-okhttp:1.6.0")
+
+                val lifecycleVersion = "2.2.0"
+                implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+                implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+            }
+        }
+        val androidTest by getting {
+            dependencies {
+                implementation("junit:junit:4.13.2")
+            }
+        }
+
+        val desktopMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-apache:1.6.0")
+            }
+        }
+        val desktopTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3")
+                implementation("junit:junit:4.13.2")
+                implementation("io.mockk:mockk:1.11.0")
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:1.6.1")
+            }
+        }
+    }
+}
+
+android {
+    compileSdk = 30
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdk = 24
+        targetSdk = 30
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}

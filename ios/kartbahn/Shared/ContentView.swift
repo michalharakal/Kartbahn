@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
-import common
-
+import shared
 
 struct ContentView: View {
-    
+         
     @ObservedObject private var roadsStateViewModel = RoadsContent()
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            List(roadsStateViewModel.roadsState.roads, id:\.name) { road in
+                        VStack (alignment: .leading) {
+                            Text(road.name)
+                        }
+                  } // List
+                  Spacer()
+                }
     }
 }
 

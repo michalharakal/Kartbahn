@@ -16,6 +16,8 @@
 		D806957826D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
 		D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
 		D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
+		D88B318726D25D8900525B26 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B318626D25D8900525B26 /* Koin.swift */; };
+		D88B318826D25D8900525B26 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B318626D25D8900525B26 /* Koin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		D806957126D196F8008A537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D806957226D196F8008A537E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D88B317F26D1AA4900525B26 /* RoadsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsContent.swift; sourceTree = "<group>"; };
+		D88B318626D25D8900525B26 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).release.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +83,7 @@
 				D806956126D196F6008A537E /* ContentView.swift */,
 				D806956226D196F8008A537E /* Assets.xcassets */,
 				D88B317F26D1AA4900525B26 /* RoadsContent.swift */,
+				D88B318626D25D8900525B26 /* Koin.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -243,6 +247,7 @@
 			files = (
 				D806957526D196F8008A537E /* ContentView.swift in Sources */,
 				D806957326D196F8008A537E /* kartbahnApp.swift in Sources */,
+				D88B318726D25D8900525B26 /* Koin.swift in Sources */,
 				D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +258,7 @@
 			files = (
 				D806957626D196F8008A537E /* ContentView.swift in Sources */,
 				D806957426D196F8008A537E /* kartbahnApp.swift in Sources */,
+				D88B318826D25D8900525B26 /* Koin.swift in Sources */,
 				D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9242WKHB6U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -400,6 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9242WKHB6U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

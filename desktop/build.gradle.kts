@@ -13,13 +13,19 @@ kotlin {
         }
     }
     sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("io.insert-koin:koin-core:3.1.2")
+            }
+        }
         val jvmMain by getting {
             dependencies {
-                implementation(project(":common"))
-                implementation(project(":common-compose-ui"))
+                implementation(project(":shared"))
+                implementation(project(":shared-compose-ui"))
 
                 implementation(compose.desktop.currentOs)
                 implementation("io.ktor:ktor-client-apache:1.6.0")
+                implementation("io.insert-koin:koin-core-jvm:3.1.2")
             }
         }
         val jvmTest by getting

@@ -6,20 +6,22 @@
 //
 
 import Foundation
-import common
+import SwiftUI
+import shared
 
 class RoadsContent: ObservableObject {
     
-    let viewModel = RoadsViewModel(repository: KartbahnRepository())
+     let viewModel = RoadsViewModel.Companion.init().create()
         
     @Published var roadsState = RoadsViewModelDataKt.createDefaultRoadsViewModelData()
     
     func fetch() {
         let roadsStateCommonFlow = viewModel.getCommonFlowFromIos()
-        roadsStateCommonFlow.watch { _roadsState in
-            if _roadsState != nil {
-                self.roadsState = _roadsState!
-            }
+        roadsStateCommonFlow.watch { _roadState in
+            if _roadState != nil {
+                self.roadsState = _roadState!
+                
+            }            
         }
     }
 }

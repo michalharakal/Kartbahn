@@ -12,9 +12,15 @@ import org.kartbahn.api.KartbahnApi
 import org.kartbahn.common.KartbahnRepository
 import org.kartbahn.presentation.RoadsList
 import org.kartbahn.presentation.RoadsViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.component.KoinComponent
 
 @InternalAPI
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), KoinComponent {
+
+    private val roadsViewModel: RoadsViewModel by viewModel()
+    val repository by inject<KartbahnRepository>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,21 +32,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val repository = KartbahnRepository()
 
     class BaseViewModelFactory<T>(val creator: () -> T) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return creator() as T
         }
-    }
-
-
-    
-    private val roadsViewModel: RoadsViewModel by lazy {
-        ViewModelProvider(
-            this,
-            BaseViewModelFactory { RoadsViewModel(repository) }
-        ).get(RoadsViewModel::class.java)
     }
 
 
