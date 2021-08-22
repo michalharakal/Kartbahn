@@ -41,6 +41,9 @@ class RoadsViewModel : CommonViewModel(), KoinComponent {
         roadsStateCommonFlow = _roads.map {
             mapRemoteRoadsData(it)
         }.asCommonFlow()
+        clientScope.launch {
+            repository.fetch()
+        }
         return roadsStateCommonFlow
     }
 

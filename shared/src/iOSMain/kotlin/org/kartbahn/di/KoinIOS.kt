@@ -13,5 +13,5 @@ fun initKoinIos(
 )
 
 actual val platformModule: Module = module {
-    // add platform specific caching and logging here
+	single { { println("Starting from iOS") } }
 }

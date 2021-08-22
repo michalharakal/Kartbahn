@@ -10,7 +10,7 @@
 # Java class files
 *.class
 
-# Generated files
+# Generated filesxcuserdata
 bin/
 gen/
 out/
@@ -74,3 +74,4 @@ lint/tmp/
 # lint/reports/
 
 .DS_Store
+xcuserdata/
