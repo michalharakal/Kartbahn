@@ -8,6 +8,10 @@ plugins {
 }
 
 kotlin {
+    js(IR) {
+        browser()
+        binaries.executable()
+    }
     android {
         compilations.all {
             kotlinOptions.jvmTarget = "1.8"

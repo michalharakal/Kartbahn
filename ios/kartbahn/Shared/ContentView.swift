@@ -20,8 +20,11 @@ struct ContentView: View {
                         }
                   } // List
                   Spacer()
-                }
+                
+    }.onAppear {
+    self.roadsStateViewModel.fetch()
     }
+}
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -70,9 +70,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt") {
-                    isForce = true
-                }
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt")
                 implementation("io.ktor:ktor-utils:1.6.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
 
@@ -82,6 +80,8 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization:1.6.0")
 
                 implementation("io.insert-koin:koin-core:3.1.2")
+
+                implementation("co.touchlab:stately-common:1.1.7")
             }
         }
         val commonTest by getting {
@@ -99,6 +99,8 @@ kotlin {
                 val lifecycleVersion = "2.2.0"
                 implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
                 implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+
+                implementation("org.slf4j:slf4j-api:1.7.30")
             }
         }
         val androidTest by getting {
@@ -110,12 +112,13 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-apache:1.6.0")
+                implementation("org.slf4j:slf4j-api:1.7.30")
             }
         }
         val desktopTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
                 implementation("junit:junit:4.13.2")
                 implementation("io.mockk:mockk:1.11.0")
             }
@@ -123,6 +126,12 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-js:1.6.1")
+            }
+        }
+
+        val iOSMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:1.6.0")
             }
         }
     }

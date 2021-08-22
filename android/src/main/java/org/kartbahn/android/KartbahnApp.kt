@@ -9,6 +9,9 @@ class KartbahnApp : Application(), KoinComponent {
 
     override fun onCreate() {
         super.onCreate()
+        if (BuildConfig.DEBUG) {
+            LogbackSdCardLoggerConfigurator().startLogging(this)
+        }
         initKoin(appModule)
     }
 }

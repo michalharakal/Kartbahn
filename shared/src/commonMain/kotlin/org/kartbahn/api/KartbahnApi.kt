@@ -10,17 +10,11 @@ import kotlinx.serialization.json.Json
 import org.karbahn.api.models.Roads
 
 class KartbahnApi(
-    engine: HttpClientEngine? = null,
     private val endpoint: String = "https://verkehr.autobahn.de/o/") {
 
-    private val client = engine?.let {
-        HttpClient(engine) {
-            config()
-        }
-    } ?: HttpClient {
+    private val client = HttpClient {
         config()
     }
-
 
     private fun HttpClientConfig<*>.config() {
         install(JsonFeature) {
