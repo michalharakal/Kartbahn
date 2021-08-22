@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import shared
 
 @main
 struct kartbahnApp: App {
+    init() {
+        startKoin()
+        }
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -45,14 +45,6 @@ kotlin {
         homepage = "https://github.com/michalharakal/Kartbahn"
     }
 
-    // Configure the framework which is generated internally by cocoapods plugin
-    targets.withType<KotlinNativeTarget> {
-        binaries.withType<Framework> {
-            isStatic = false // SwiftUI preview requires dynamic framework
-            transitiveExport = true
-        }
-    }
-
     js(IR) {
         browser()
         binaries.executable()
@@ -79,9 +71,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt") {
-                    version {
-                        strictly("1.5.0")
-                    }
+                    isForce = true
                 }
                 implementation("io.ktor:ktor-utils:1.6.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
