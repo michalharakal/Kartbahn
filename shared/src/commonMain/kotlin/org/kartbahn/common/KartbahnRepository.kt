@@ -1,14 +1,15 @@
 package org.kartbahn.common
 
 import kotlinx.coroutines.flow.Flow
-import org.karbahn.api.models.Roads
 import org.kartbahn.api.KartbahnApi
 import org.kartbahn.core.LogLevel
 import org.kartbahn.core.logger
+import org.kartbahn.domain.model.Road
+import org.kartbahn.domain.model.Roads
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class KartbahnRepository:KoinComponent {
+class KartbahnRepository : KoinComponent {
 
     private val kartbahnApi: KartbahnApi by inject()
 
@@ -19,12 +20,20 @@ class KartbahnRepository:KoinComponent {
     val roadsStateModel: Flow<Roads>
         get() = _roadsStateModel.model
 
-    fun updateRoads(value: Roads) {
-        _roadsStateModel.setValue(value.copy())
+    fun updateRoads(value: org.kartbahn.api.models.Roads) {
+        _roadsStateModel.setValue(value.toDomain())
     }
 
     suspend fun fetch() {
         logger(LogLevel.INFO, "KartbahnRepository", "getCommonFlowFromIos")
         updateRoads(kartbahnApi.getRoads())
     }
+
+    private fun org.kartbahn.api.models.Roads.toDomain(): Roads = Roads(
+        this.roads!!.map { road ->
+            Road(road, emptyList())
+        })
 }
+
+
+

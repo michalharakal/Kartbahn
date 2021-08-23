@@ -7,11 +7,12 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import kotlinx.serialization.json.Json
-import org.karbahn.api.models.Roads
-import org.karbahn.api.models.Roadworks
+import org.kartbahn.api.models.Roads
+import org.kartbahn.api.models.Roadworks
 
 class KartbahnApi(
-    private val endpoint: String = "https://verkehr.autobahn.de/o/autobahn") {
+    private val endpoint: String = "https://verkehr.autobahn.de/o/autobahn"
+) {
 
     private val client = HttpClient {
         config()
@@ -33,6 +34,6 @@ class KartbahnApi(
         client.get(endpoint)
 
     // /{roadId}/services/roadworks
-    suspend fun getRoadWorks(roadId:String): Roadworks =
+    suspend fun getRoadWorks(roadId: String): Roadworks =
         client.get("$endpoint/${roadId}/services/roadworks")
 }

@@ -13,7 +13,7 @@ plugins {
 mokoNetwork {
     spec("kartbahn") {
         inputSpec = file("${rootDir}/specs/api.yaml")
-        packageName = "org.karbahn.api"
+        packageName = "org.kartbahn.api"
         isInternal = false
         isOpen = true
     }

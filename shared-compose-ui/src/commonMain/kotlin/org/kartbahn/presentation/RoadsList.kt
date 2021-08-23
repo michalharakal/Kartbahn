@@ -7,13 +7,13 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import org.karbahn.api.models.Roads
+import org.kartbahn.presentation.model.createDefaultRoadsViewModelData
 
 @Composable
 fun RoadsList(roadsViewModel: RoadsViewModel) {
 
     val roadsState = roadsViewModel.roads.collectAsState(
-        Roads(emptyList()),
+        createDefaultRoadsViewModelData(),
         roadsViewModel.clientScope.coroutineContext
     )
 
@@ -23,8 +23,8 @@ fun RoadsList(roadsViewModel: RoadsViewModel) {
                 TopAppBar(title = { Text("Kartbahn") })
             }) {
             LazyColumn {
-                items(roadsState.value.roads!!.size) { eventIndex ->
-                    Text(roadsState.value.roads!![eventIndex])
+                items(roadsState.value.roads.size) { eventIndex ->
+                    Text(roadsState.value.roads[eventIndex].name)
                 }
             }
         }

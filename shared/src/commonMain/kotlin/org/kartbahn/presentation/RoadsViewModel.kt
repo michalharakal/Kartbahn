@@ -3,7 +3,6 @@ package org.kartbahn.presentation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import org.karbahn.api.models.Roads
 import org.kartbahn.common.KartbahnRepository
 import org.kartbahn.common.CommonViewModel
 import org.kartbahn.core.CFlow
@@ -19,26 +18,23 @@ import kotlin.native.concurrent.ThreadLocal
 
 class RoadsViewModel : CommonViewModel(), KoinComponent {
     private val repository: KartbahnRepository by inject()
-    val roads: Flow<Roads> = repository.roadsStateModel
-    private var _roads: Flow<Roads>
-    private lateinit var roadsStateCommonFlow: CFlow<RoadsViewModelData>
+
+    val roads: Flow<RoadsViewModelData> = repository.roadsStateModel.map { roads ->
+        mapRoads(roads)
+    }
+
+    private fun mapRoads(roads: org.kartbahn.domain.model.Roads) =
+        RoadsViewModelData(roads.roads.map { road ->
+            RoadViewModelData(road.name)
+        })
+
+
+    //private var _roads: Flow<Roads>
+    //private lateinit var roadsStateCommonFlow: CFlow<RoadsViewModelData>
 
     init {
         logger(LogLevel.INFO, "RoadsViewModel", "init 1")
-            _roads = repository.roadsStateModel
-        logger(LogLevel.INFO, "RoadsViewModel", "init 2")
-            logger(LogLevel.INFO, "RoadsViewModel", "init 3")
-            roadsStateCommonFlow = _roads.map {
-                mapRemoteRoadsData(it)
-            }.asCommonFlow()
-            logger(LogLevel.INFO, "RoadsViewModel", "init 4")
     }
-
-    private fun mapRemoteRoadsData(roads: Roads): RoadsViewModelData = RoadsViewModelData(
-        roads.roads?.map { dtoRoad ->
-            RoadViewModelData(dtoRoad)
-        } ?: emptyList()
-    )
 
     @Suppress("unused")
     fun getCommonFlowFromIos(): CFlow<RoadsViewModelData> {
@@ -48,7 +44,10 @@ class RoadsViewModel : CommonViewModel(), KoinComponent {
             logger(LogLevel.INFO, "RoadsViewModel", "getCommonFlowFromIos 2")
             repository.fetch()
         }
-
+        val roadsStateCommonFlow = roads.asCommonFlow()
+        repository.roadsStateModel.map { roads ->
+            mapRoads(roads)
+        }
         return roadsStateCommonFlow
     }
 

@@ -18,7 +18,7 @@ fun initKoin(appDeclaration: Module): KoinApplication =
 
 private val coreModule = module {
     single {
-        KartbahnApi("https://verkehr.autobahn.de/o/")
+        KartbahnApi("https://verkehr.autobahn.de/o/autobahn")
     }
     single { KartbahnRepository() }
 }
