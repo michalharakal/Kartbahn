@@ -7,8 +7,10 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import kotlinx.serialization.json.Json
+import org.kartbahn.api.models.ElectricChargingStations
 import org.kartbahn.api.models.Roads
 import org.kartbahn.api.models.Roadworks
+import org.kartbahn.api.models.Warnings
 
 class KartbahnApi(
     private val endpoint: String = "https://verkehr.autobahn.de/o/autobahn"
@@ -26,7 +28,6 @@ class KartbahnApi(
             }
             serializer = KotlinxSerializer(Json { isLenient = true; ignoreUnknownKeys = true })
         }
-
     }
 
     // https://verkehr.autobahn.de/o/autobahn/
@@ -36,4 +37,12 @@ class KartbahnApi(
     // /{roadId}/services/roadworks
     suspend fun getRoadWorks(roadId: String): Roadworks =
         client.get("$endpoint/${roadId}/services/roadworks")
+
+    // https://verkehr.autobahn.de/o/autobahn/A1/services/warning
+    suspend fun getWarnings(roadId: String): Warnings =
+        client.get("$endpoint/${roadId}/services/warning")
+
+    // https://verkehr.autobahn.de/o/autobahn/A1/services/electric_charging_station
+    suspend fun getElectricChargingStations(roadId: String): ElectricChargingStations =
+        client.get("$endpoint/${roadId}/services/electric_charging_station")
 }

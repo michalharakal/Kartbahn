@@ -1,7 +1,7 @@
 package org.kartbahn.presentation
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -10,9 +10,6 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import org.kartbahn.presentation.model.createDefaultRoadsViewModelData
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,21 +40,24 @@ fun RoadsList(roadsViewModel: RoadsViewModel) {
             }) {
             LazyColumn {
                 items(roadsState.value.roads.size) { eventIndex ->
-                    Box(
-                        modifier = Modifier.size(width = 100.dp, height = 60.dp).padding(10.dp)
-                            .clip(HighwaySignShape())
-                            .background(Color.Blue),
-                        contentAlignment = Alignment.Center
-
-                    ) {
-
+                    Row {
+                        Box(
+                            modifier = Modifier.size(width = 100.dp, height = 60.dp).padding(10.dp)
+                                .clip(HighwaySignShape())
+                                .background(Color.Blue),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                roadsState.value.roads[eventIndex].name,
+                                fontWeight = FontWeight.W900,
+                                color = Color.White,
+                                textAlign = TextAlign.Center
+                            )
+                        }
                         Text(
-                            roadsState.value.roads[eventIndex].name,
-                            fontWeight = FontWeight.W900,
-                            color = Color.White,
+                            roadsState.value.roads[eventIndex].warnings.size.toString(),
                             textAlign = TextAlign.Center
                         )
-
                     }
                 }
             }

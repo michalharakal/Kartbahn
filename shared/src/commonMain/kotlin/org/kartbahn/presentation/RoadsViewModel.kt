@@ -11,6 +11,7 @@ import org.kartbahn.core.asCommonFlow
 import org.kartbahn.core.logger
 import org.kartbahn.presentation.model.RoadViewModelData
 import org.kartbahn.presentation.model.RoadsViewModelData
+import org.kartbahn.presentation.model.WarningViewModelData
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import kotlin.native.concurrent.ThreadLocal
@@ -25,7 +26,9 @@ class RoadsViewModel : CommonViewModel(), KoinComponent {
 
     private fun mapRoads(roads: org.kartbahn.domain.model.Roads) =
         RoadsViewModelData(roads.roads.map { road ->
-            RoadViewModelData(road.name)
+            RoadViewModelData(road.name, road.warnings.map { warning ->
+                WarningViewModelData(warning.name)
+            })
         })
 
 

@@ -6,6 +6,7 @@ import org.kartbahn.core.LogLevel
 import org.kartbahn.core.logger
 import org.kartbahn.domain.model.Road
 import org.kartbahn.domain.model.Roads
+import org.kartbahn.domain.model.Warning
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -20,7 +21,7 @@ class KartbahnRepository : KoinComponent {
     val roadsStateModel: Flow<Roads>
         get() = _roadsStateModel.model
 
-    fun updateRoads(value: org.kartbahn.api.models.Roads) {
+    suspend fun updateRoads(value: org.kartbahn.api.models.Roads) {
         _roadsStateModel.setValue(value.toDomain())
     }
 
@@ -29,10 +30,24 @@ class KartbahnRepository : KoinComponent {
         updateRoads(kartbahnApi.getRoads())
     }
 
-    private fun org.kartbahn.api.models.Roads.toDomain(): Roads = Roads(
+    private suspend fun org.kartbahn.api.models.Roads.toDomain(): Roads = Roads(
         this.roads!!.map { road ->
-            Road(road, emptyList())
+            Road(
+                name = road,
+                roadWork = emptyList(),
+                warnings = getWarnings(road),
+                electricChargingStations = emptyList()
+            )
         })
+
+    private suspend fun getWarnings(roadId: String): List<Warning> {
+        if (roadId.contains("/")) {
+            return emptyList()
+        }
+        return kartbahnApi.getWarnings(roadId).warning!!.map {
+            it.item0.title?.let { it1 -> Warning(it1) } ?: Warning("")
+        }
+    }
 }
 
 

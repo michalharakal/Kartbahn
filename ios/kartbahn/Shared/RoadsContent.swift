@@ -32,10 +32,11 @@ class RoadsPreviewModel: SwiftRoadsViewModel {
     override init() {
         super.init()
 
-        self.storage = [RoadViewModelData(name: "A1"),
-                        RoadViewModelData(name: "A4"),
-                        RoadViewModelData(name: "A61"),
-                        RoadViewModelData(name: "A555")]
+        self.storage = [RoadViewModelData(name: "A1",
+                                          warnings: [WarningViewModelData(name: "This is a warning")]),
+                        RoadViewModelData(name: "A4", warnings: []),
+                        RoadViewModelData(name: "A61", warnings: []),
+                        RoadViewModelData(name: "A555", warnings: [])]
     }
 }
 
