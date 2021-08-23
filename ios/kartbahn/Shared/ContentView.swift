@@ -11,7 +11,10 @@ import shared
 struct ContentView: View {
 
     var body: some View {
-        RoadListView(roads: RoadsLiveViewModel())
+        NavigationView {
+            RoadListView(roads: RoadsLiveViewModel())
+                .navigationTitle("Autobahnen")
+        }
     }
 }
 

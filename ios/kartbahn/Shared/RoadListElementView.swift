@@ -10,15 +10,10 @@ import SwiftUI
 struct RoadListElementView: View {
     @State var name: String
     var body: some View {
-        VStack (alignment: .leading) {
-            Image("Zeichen_405")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50)
-                .overlay(
-                    Text(name)
-                        .foregroundColor(.white)
-                )
+        HStack (alignment: .center) {
+            AutobahnNumberView(number: name)
+            Spacer()
+            Text("Verkehrsmeldungen: 1")
         }
     }
 }
