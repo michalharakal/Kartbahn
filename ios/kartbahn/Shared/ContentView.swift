@@ -9,22 +9,10 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-         
-    @ObservedObject private var roadsStateViewModel = RoadsContent()
-    
+
     var body: some View {
-        VStack {
-            List(roadsStateViewModel.roadsState.roads, id:\.name) { road in
-                        VStack (alignment: .leading) {
-                            Text(road.name)
-                        }
-                  } // List
-                  Spacer()
-                
-    }.onAppear {
-    self.roadsStateViewModel.fetch()
+        RoadListView(roads: RoadsLiveViewModel())
     }
-}
 }
 
 struct ContentView_Previews: PreviewProvider {

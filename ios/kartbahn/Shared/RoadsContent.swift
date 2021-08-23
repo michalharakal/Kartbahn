@@ -9,19 +9,47 @@ import Foundation
 import SwiftUI
 import shared
 
-class RoadsContent: ObservableObject {
-    
-     let viewModel = RoadsViewModel.Companion.init().create()
-        
-    @Published var roadsState = RoadsViewModelDataKt.createDefaultRoadsViewModelData()
-    
-    func fetch() {
+class SwiftRoadsViewModel: ObservableObject, RandomAccessCollection {
+    typealias ArrayType = Array<RoadViewModelData>
+    typealias Index = ArrayType.Index
+    typealias Element = ArrayType.Element
+
+    internal var storage = ArrayType()
+
+    var startIndex: Index { return storage.startIndex }
+    var endIndex: Index { return storage.endIndex }
+
+    subscript(index: Index) -> ArrayType.Element {
+        get { return storage[index] }
+    }
+
+    func index(after i: Index) -> Index {
+        return storage.index(after: i)
+    }
+}
+
+class RoadsPreviewModel: SwiftRoadsViewModel {
+    override init() {
+        super.init()
+
+        self.storage = [RoadViewModelData(name: "A1"),
+                        RoadViewModelData(name: "A4"),
+                        RoadViewModelData(name: "A61"),
+                        RoadViewModelData(name: "A555")]
+    }
+}
+
+class RoadsLiveViewModel: SwiftRoadsViewModel {
+    override init() {
+        super.init()
+        let viewModel = RoadsViewModel.Companion.init().create()
         let roadsStateCommonFlow = viewModel.getCommonFlowFromIos()
-        roadsStateCommonFlow.watch { _roadState in
-            if _roadState != nil {
-                self.roadsState = _roadState!
-                
-            }            
+
+        roadsStateCommonFlow.watch { roadState in
+            if let roadState = roadState {
+                self.objectWillChange.send()
+                self.storage = roadState.roads
+            }
         }
     }
 }
