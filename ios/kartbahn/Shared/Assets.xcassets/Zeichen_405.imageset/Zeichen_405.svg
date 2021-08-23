@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 600.99628 361.00125"
+   height="361.00125"
+   width="600.99628"
+   xml:space="preserve"
+   version="1.1"
+   id="svg5716"><metadata
+     id="metadata5722"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs5720" /><g
+     transform="matrix(1.25,0,0,-1.25,-62.485,475.21125)"
+     id="g5724"><path
+       id="path5738"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 74.387,379.771 c -13.254,0 -24,-10.746 -24,-24 v -240 c 0,-13.258 10.746,-24 24,-24 h 432 c 13.254,0 24,10.742 24,24 v 240 c 0,13.254 -10.746,24 -24,24 z" /><path
+       id="path5740"
+       style="fill:#154889;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="M 290.387,368.447 C 261.574,368.599 80.066,335.962 80.066,335.962 72.293,334.822 66.496,328.2 66.395,320.341 l -0.008,-0.004 V 151.888 l 0.008,-0.004 c 0.101,-7.859 5.898,-14.48 13.671,-15.621 0,0 181.508,-32.633 210.321,-32.481 27.808,0.047 210.316,32.481 210.316,32.481 7.777,1.141 13.574,7.762 13.676,15.621 l 0.008,0.004 v 168.449 l -0.008,0.004 c -0.102,7.859 -5.899,14.481 -13.676,15.621 0,0 -182.508,32.438 -210.316,32.485 z" /><path
+       id="path5748"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 74.387,380.169 c -13.473,0 -24.399,-10.93 -24.399,-24.398 v -240 c 0,-13.473 10.926,-24.403 24.399,-24.403 h 432 c 13.472,0 24.398,10.93 24.398,24.403 v 240 c 0,13.468 -10.926,24.398 -24.398,24.398 z m 0,-0.398 h 432 c 13.254,0 24,-10.746 24,-24 v -240 c 0,-13.258 -10.746,-24 -24,-24 h -432 c -13.254,0 -24,10.742 -24,24 v 240 c 0,13.254 10.746,24 24,24 z" /></g></svg>

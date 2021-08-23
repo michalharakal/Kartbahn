@@ -11,7 +11,14 @@ struct RoadListElementView: View {
     @State var name: String
     var body: some View {
         VStack (alignment: .leading) {
-            Text(name)
+            Image("Zeichen_405")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50)
+                .overlay(
+                    Text(name)
+                        .foregroundColor(.white)
+                )
         }
     }
 }
