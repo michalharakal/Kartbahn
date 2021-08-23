@@ -45,10 +45,6 @@ kotlin {
         homepage = "https://github.com/michalharakal/Kartbahn"
     }
 
-    js(IR) {
-        browser()
-        binaries.executable()
-    }
     android {
         compilations.all {
             kotlinOptions.jvmTarget = "1.8"
@@ -123,11 +119,14 @@ kotlin {
                 implementation("io.mockk:mockk:1.11.0")
             }
         }
+        /*
         val jsMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-js:1.6.1")
             }
         }
+
+         */
 
         val iOSMain by getting {
             dependencies {
