@@ -14,6 +14,8 @@
 		CBE0B06F26D4192D00C4411B /* RoadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B06D26D4192D00C4411B /* RoadListView.swift */; };
 		CBE0B08726D45BEF00C4411B /* AutobahnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */; };
 		CBE0B08826D45BEF00C4411B /* AutobahnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */; };
+		CBE0B08A26D5033500C4411B /* WarningsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsProvider.swift */; };
+		CBE0B08B26D5033500C4411B /* WarningsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsProvider.swift */; };
 		D806957326D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
 		D806957426D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
 		D806957526D196F8008A537E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956126D196F6008A537E /* ContentView.swift */; };
@@ -34,6 +36,7 @@
 		CBE0B06A26D4187000C4411B /* RoadListElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListElementView.swift; sourceTree = "<group>"; };
 		CBE0B06D26D4192D00C4411B /* RoadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListView.swift; sourceTree = "<group>"; };
 		CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnNumberView.swift; sourceTree = "<group>"; };
+		CBE0B08926D5033500C4411B /* WarningsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsProvider.swift; sourceTree = "<group>"; };
 		D806956026D196F6008A537E /* kartbahnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kartbahnApp.swift; sourceTree = "<group>"; };
 		D806956126D196F6008A537E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D806956226D196F8008A537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 				CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */,
 				D806956226D196F8008A537E /* Assets.xcassets */,
 				D88B317F26D1AA4900525B26 /* RoadsContent.swift */,
+				CBE0B08926D5033500C4411B /* WarningsProvider.swift */,
 				D88B318626D25D8900525B26 /* Koin.swift */,
 			);
 			path = Shared;
@@ -278,6 +282,7 @@
 				CBE0B06E26D4192D00C4411B /* RoadListView.swift in Sources */,
 				D88B318726D25D8900525B26 /* Koin.swift in Sources */,
 				D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */,
+				CBE0B08A26D5033500C4411B /* WarningsProvider.swift in Sources */,
 				CBE0B06B26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08726D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
 			);
@@ -292,6 +297,7 @@
 				CBE0B06F26D4192D00C4411B /* RoadListView.swift in Sources */,
 				D88B318826D25D8900525B26 /* Koin.swift in Sources */,
 				D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */,
+				CBE0B08B26D5033500C4411B /* WarningsProvider.swift in Sources */,
 				CBE0B06C26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08826D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
 			);

@@ -5,7 +5,6 @@
 //  Created by Michal Harakal on 21.08.21.
 //
 
-import Foundation
 import SwiftUI
 import shared
 
