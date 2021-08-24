@@ -39,47 +39,10 @@ fun RoadsList(roadsViewModel: RoadsViewModel) {
                 TopAppBar(title = { Text("Kartbahn") })
             }) {
             LazyColumn {
-                items(roadsState.value.roads.size) { eventIndex ->
-                    Row {
-                        Box(
-                            modifier = Modifier.size(width = 100.dp, height = 60.dp).padding(10.dp)
-                                .clip(HighwaySignShape())
-                                .background(Color.Blue),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                roadsState.value.roads[eventIndex].name,
-                                fontWeight = FontWeight.W900,
-                                color = Color.White,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                        Text(
-                            roadsState.value.roads[eventIndex].warnings.size.toString(),
-                            textAlign = TextAlign.Center
-                        )
-                    }
+                items(roadsState.value.roads.size) { roadIndex ->
+                    RoadListCell(roadsState.value.roads[roadIndex].name)
                 }
             }
         }
-    }
-}
-
-class HighwaySignShape : Shape {
-    override fun createOutline(
-        size: Size,
-        layoutDirection: LayoutDirection,
-        density: Density
-    ): Outline {
-        val signPath = Path().apply {
-            moveTo(0f, size.height * 0.1f)
-            lineTo(x = size.width / 2, y = 0f)
-            lineTo(x = size.width, y = size.height * 0.1f)
-            lineTo(x = size.width, y = size.height - size.height * 0.1f)
-            lineTo(x = size.width / 2, y = size.height)
-            lineTo(x = 0f, y = size.height - size.height * 0.1f)
-            lineTo(x = 0f, size.height * 0.1f)
-        }
-        return Outline.Generic(path = signPath)
     }
 }
