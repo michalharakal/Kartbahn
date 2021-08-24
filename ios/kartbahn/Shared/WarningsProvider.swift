@@ -7,23 +7,7 @@
 
 import SwiftUI
 
-class WarningsProvider: ObservableObject, RandomAccessCollection {
-    typealias ArrayType = Array<String>
-    typealias Index = ArrayType.Index
-    typealias Element = ArrayType.Element
-
-    internal var storage = ArrayType()
-
-    var startIndex: Index { return storage.startIndex }
-    var endIndex: Index { return storage.endIndex }
-
-    subscript(index: Index) -> ArrayType.Element {
-        get { return storage[index] }
-    }
-
-    func index(after i: Index) -> Index {
-        return storage.index(after: i)
-    }
+class WarningsProvider: Provider<String> {
 }
 
 class WarningsPreviewProvider: WarningsProvider {

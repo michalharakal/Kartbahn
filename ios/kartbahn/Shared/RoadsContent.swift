@@ -8,8 +8,8 @@
 import SwiftUI
 import shared
 
-class SwiftRoadsViewModel: ObservableObject, RandomAccessCollection {
-    typealias ArrayType = Array<RoadViewModelData>
+class Provider<T>: ObservableObject, RandomAccessCollection {
+    typealias ArrayType = Array<T>
     typealias Index = ArrayType.Index
     typealias Element = ArrayType.Element
 
@@ -17,14 +17,16 @@ class SwiftRoadsViewModel: ObservableObject, RandomAccessCollection {
 
     var startIndex: Index { return storage.startIndex }
     var endIndex: Index { return storage.endIndex }
+    func index(after i: Index) -> Index {
+        return storage.index(after: i)
+    }
 
     subscript(index: Index) -> ArrayType.Element {
         get { return storage[index] }
     }
+}
 
-    func index(after i: Index) -> Index {
-        return storage.index(after: i)
-    }
+class SwiftRoadsViewModel: Provider<RoadViewModelData> {
 }
 
 class RoadsPreviewModel: SwiftRoadsViewModel {
