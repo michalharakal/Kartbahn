@@ -14,8 +14,8 @@
 		CBE0B06F26D4192D00C4411B /* RoadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B06D26D4192D00C4411B /* RoadListView.swift */; };
 		CBE0B08726D45BEF00C4411B /* AutobahnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */; };
 		CBE0B08826D45BEF00C4411B /* AutobahnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */; };
-		CBE0B08A26D5033500C4411B /* WarningsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsProvider.swift */; };
-		CBE0B08B26D5033500C4411B /* WarningsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsProvider.swift */; };
+		CBE0B08A26D5033500C4411B /* WarningsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsPublisher.swift */; };
+		CBE0B08B26D5033500C4411B /* WarningsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B08926D5033500C4411B /* WarningsPublisher.swift */; };
 		D806957326D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
 		D806957426D196F8008A537E /* kartbahnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956026D196F6008A537E /* kartbahnApp.swift */; };
 		D806957526D196F8008A537E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956126D196F6008A537E /* ContentView.swift */; };
@@ -24,8 +24,8 @@
 		D806957826D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
 		D849416926D2B18B0071FC2A /* commonMain in Resources */ = {isa = PBXBuildFile; fileRef = D849416726D2B18B0071FC2A /* commonMain */; };
 		D849416A26D2B18B0071FC2A /* iOSMain in Resources */ = {isa = PBXBuildFile; fileRef = D849416826D2B18B0071FC2A /* iOSMain */; };
-		D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
-		D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsContent.swift */; };
+		D88B318026D1AA4900525B26 /* RoadsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */; };
+		D88B318126D1AA4900525B26 /* RoadsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */; };
 		D88B318726D25D8900525B26 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B318626D25D8900525B26 /* Koin.swift */; };
 		D88B318826D25D8900525B26 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B318626D25D8900525B26 /* Koin.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		CBE0B06A26D4187000C4411B /* RoadListElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListElementView.swift; sourceTree = "<group>"; };
 		CBE0B06D26D4192D00C4411B /* RoadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListView.swift; sourceTree = "<group>"; };
 		CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnNumberView.swift; sourceTree = "<group>"; };
-		CBE0B08926D5033500C4411B /* WarningsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsProvider.swift; sourceTree = "<group>"; };
+		CBE0B08926D5033500C4411B /* WarningsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsPublisher.swift; sourceTree = "<group>"; };
 		D806956026D196F6008A537E /* kartbahnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kartbahnApp.swift; sourceTree = "<group>"; };
 		D806956126D196F6008A537E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D806956226D196F8008A537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		D806957226D196F8008A537E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D849416726D2B18B0071FC2A /* commonMain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = commonMain; path = ../../../shared/src/commonMain; sourceTree = "<group>"; };
 		D849416826D2B18B0071FC2A /* iOSMain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOSMain; path = ../../../shared/src/iOSMain; sourceTree = "<group>"; };
-		D88B317F26D1AA4900525B26 /* RoadsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsContent.swift; sourceTree = "<group>"; };
+		D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsPublisher.swift; sourceTree = "<group>"; };
 		D88B318626D25D8900525B26 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).release.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,8 +102,8 @@
 				CBE0B06A26D4187000C4411B /* RoadListElementView.swift */,
 				CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */,
 				D806956226D196F8008A537E /* Assets.xcassets */,
-				D88B317F26D1AA4900525B26 /* RoadsContent.swift */,
-				CBE0B08926D5033500C4411B /* WarningsProvider.swift */,
+				D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */,
+				CBE0B08926D5033500C4411B /* WarningsPublisher.swift */,
 				D88B318626D25D8900525B26 /* Koin.swift */,
 			);
 			path = Shared;
@@ -281,8 +281,8 @@
 				D806957326D196F8008A537E /* kartbahnApp.swift in Sources */,
 				CBE0B06E26D4192D00C4411B /* RoadListView.swift in Sources */,
 				D88B318726D25D8900525B26 /* Koin.swift in Sources */,
-				D88B318026D1AA4900525B26 /* RoadsContent.swift in Sources */,
-				CBE0B08A26D5033500C4411B /* WarningsProvider.swift in Sources */,
+				D88B318026D1AA4900525B26 /* RoadsPublisher.swift in Sources */,
+				CBE0B08A26D5033500C4411B /* WarningsPublisher.swift in Sources */,
 				CBE0B06B26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08726D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
 			);
@@ -296,8 +296,8 @@
 				D806957426D196F8008A537E /* kartbahnApp.swift in Sources */,
 				CBE0B06F26D4192D00C4411B /* RoadListView.swift in Sources */,
 				D88B318826D25D8900525B26 /* Koin.swift in Sources */,
-				D88B318126D1AA4900525B26 /* RoadsContent.swift in Sources */,
-				CBE0B08B26D5033500C4411B /* WarningsProvider.swift in Sources */,
+				D88B318126D1AA4900525B26 /* RoadsPublisher.swift in Sources */,
+				CBE0B08B26D5033500C4411B /* WarningsPublisher.swift in Sources */,
 				CBE0B06C26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08826D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
 			);

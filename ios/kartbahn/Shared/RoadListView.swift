@@ -13,7 +13,7 @@ struct RoadListView: View {
     var body: some View {
         VStack {
             List(roads.roads, id:\.name) { road in
-                RoadListElementView(name: road.name, warningsProvider: WarningsPreviewProvider())
+                RoadListElementView(road: road)
             }
             Spacer()
         }

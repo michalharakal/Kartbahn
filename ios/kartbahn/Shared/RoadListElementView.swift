@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
+import shared
 
 struct RoadListElementView: View {
-    @State var name: String
-    @ObservedObject var warningsProvider: WarningsProvider
+    @State var road: RoadViewModelData
     var body: some View {
         HStack (alignment: .center) {
-            AutobahnNumberView(number: name)
+            AutobahnNumberView(number: road.name)
             Spacer()
             
             Text("Verkehrsmeldungen:")
-            if warningsProvider.count == 0 {
+            if road.warningsCount == 0 {
                 Text("Keine")
             } else {
-                Text("\(warningsProvider.count)")
+                Text("\(road.warningsCount)")
             }
         }
     }
@@ -27,7 +27,6 @@ struct RoadListElementView: View {
 
 struct RoadListElementView_Previews: PreviewProvider {
     static var previews: some View {
-        let previewData = WarningsPreviewProvider()
-        RoadListElementView(name: "A4", warningsProvider: previewData)
+        RoadListElementView(road: RoadViewModelData(name: "A4", warningsCount: 2))
     }
 }
