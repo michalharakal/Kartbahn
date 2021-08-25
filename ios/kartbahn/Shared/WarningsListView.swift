@@ -9,13 +9,16 @@ import SwiftUI
 import shared
 
 struct WarningsListView: View {
+    @ObservedObject var warningsPublisher: WarningsPublisher
     var body: some View {
-        WarningsElementView(warning: WarningViewModelData(warningId: "XYZ", title: "Krokodil", subtitle: "Ein Krokodil auf der A4", start: Kotlinx_datetimeLocalDateTime(year: 2021, month: .august, dayOfMonth: 24, hour: 23, minute: 23, second: 23, nanosecond: 0)))
+        List(warningsPublisher.warnings, id:\.warningId) { warning in
+            WarningsElementView(warning: warning)
+        }
     }
 }
 
 struct WarningsListView_Previews: PreviewProvider {
     static var previews: some View {
-        WarningsListView()
+        WarningsListView(warningsPublisher: WarningsPreviewPublisher())
     }
 }

@@ -13,12 +13,7 @@ struct RoadListView: View {
     var body: some View {
         VStack {
             List(roads.roads, id:\.name) { road in
-
-//                let warnings = WarningsLivePublisher(name: road.name)
-                NavigationLink(
-                    destination: WarningsListView()) {
-                        RoadListElementView(road: road)
-                }
+                RoadListElementView(road: road)
             }
             Spacer()
         }

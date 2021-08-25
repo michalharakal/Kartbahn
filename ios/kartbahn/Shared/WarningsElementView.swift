@@ -13,6 +13,7 @@ struct WarningsElementView: View {
     var body: some View {
         VStack {
             Text(self.warning.title).font(.title)
+            Text(self.warning.subtitle).font(.subheadline)
         }
     }
 }
