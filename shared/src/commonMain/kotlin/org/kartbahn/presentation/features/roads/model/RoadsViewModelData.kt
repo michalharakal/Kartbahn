@@ -1,8 +1,6 @@
-package org.kartbahn.presentation.model
+package org.kartbahn.presentation.features.roads.model
 
 data class RoadViewModelData(val name: String, val warningsCount:Int)
-
-data class WarningViewModelData(val name: String)
 
 data class RoadsViewModelData(val roads: List<RoadViewModelData>)
 

@@ -2,6 +2,8 @@ package org.kartbahn.common
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.DeserializationStrategy
 import org.kartbahn.api.KartbahnApi
 import org.kartbahn.core.CFlow
 import org.kartbahn.core.LogLevel
@@ -12,6 +14,8 @@ import org.kartbahn.domain.model.Roads
 import org.kartbahn.domain.model.Warning
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import kotlinx.serialization.json.Json
+import org.kartbahn.api.LocalDateTimeHolder
 
 class KartbahnRepository : KoinComponent {
 
@@ -33,6 +37,36 @@ class KartbahnRepository : KoinComponent {
         if (result.data != null) {
             updateRoads(result.data)
         }
+    }
+
+    suspend fun fetchRoad(roadId: String) {
+        val result = getWarnings(roadId)
+        val oldRoads = _roadsStateModel.model.value
+        _roadsStateModel.setValue(
+            Roads(
+                oldRoads.roads.map { oldRoad ->
+                    if (oldRoad.name == roadId) {
+                        Road(
+                            oldRoad.name,
+                            oldRoad.roadWork,
+                            result.map { warning ->
+                                Warning(
+                                    warningId = warning.warningId,
+                                    title = warning.title,
+                                    subtitle = warning.subtitle,
+                                    start = warning.start
+                                )
+                            },
+                            oldRoad.electricChargingStations
+                        )
+                    } else {
+                        oldRoad
+                    }
+                }
+
+            )
+        )
+
     }
 
     suspend fun fetchFromNetwork(): DataState<org.kartbahn.api.models.Roads> {
@@ -76,10 +110,35 @@ class KartbahnRepository : KoinComponent {
         if (roadId.contains("/")) {
             return emptyList()
         }
-        return kartbahnApi.getWarnings(roadId).warning!!.map {
-            it.item0.title?.let { it1 -> Warning(it1) } ?: Warning("")
+        return kartbahnApi.getWarnings(roadId).warning!!.map { roadEventComposed ->
+            val startTimeStamp: LocalDateTimeHolder =
+                convertDateTime(roadEventComposed.item1.startTimestamp ?: "")
+            with(roadEventComposed.item0) {
+                Warning(
+                    identifier ?: "",
+                    title ?: "",
+                    subtitle ?: "",
+                    startTimeStamp.timestamp
+                )
+            }
         }
     }
+
+    private fun convertDateTime(startTimeStampStr: String): LocalDateTimeHolder =
+        if (startTimeStampStr.isNotBlank()) {
+            val localDateTimeHolderJsonStr = "{\"timestamp\":\"$startTimeStampStr\"}"
+            try {
+                Json.decodeFromString(getDeserializer(), localDateTimeHolderJsonStr)
+            } catch (e: Exception) {
+                LocalDateTimeHolder(LocalDateTime(1970, 1, 1, 0, 0))
+            }
+        } else {
+            LocalDateTimeHolder(LocalDateTime(1970, 1, 1, 0, 0))
+        }
+
+
+    private fun getDeserializer(): DeserializationStrategy<LocalDateTimeHolder> =
+        LocalDateTimeHolder.serializer()
 
     fun getRoadsState(roadId: String): Road {
         return _roadsStateModel.model.value.roads.firstOrNull { road ->

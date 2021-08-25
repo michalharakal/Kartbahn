@@ -1,8 +1,15 @@
 package org.kartbahn.domain.model
 
+import kotlinx.datetime.LocalDateTime
+
 data class RoadWork(val name: String)
 
-data class Warning(val name: String)
+data class Warning(
+    val warningId: String,
+    val title: String,
+    val subtitle: String,
+    val start: LocalDateTime
+)
 
 data class ElectricChargingStation(val name: String)
 

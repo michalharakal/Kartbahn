@@ -7,8 +7,8 @@ import org.kartbahn.common.KartbahnRepository
 import org.kartbahn.common.CommonViewModel
 import org.kartbahn.core.CFlow
 import org.kartbahn.core.asCommonFlow
-import org.kartbahn.presentation.model.RoadViewModelData
-import org.kartbahn.presentation.model.RoadsViewModelData
+import org.kartbahn.presentation.features.roads.model.RoadViewModelData
+import org.kartbahn.presentation.features.roads.model.RoadsViewModelData
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import kotlin.native.concurrent.ThreadLocal

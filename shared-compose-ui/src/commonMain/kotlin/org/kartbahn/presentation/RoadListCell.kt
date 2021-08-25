@@ -19,11 +19,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import org.kartbahn.presentation.model.RoadViewModelData
+import org.kartbahn.presentation.features.roads.model.RoadViewModelData
 
 @Composable
 fun RoadListCell(roadId: String) {
-    val roadDetailViewModel = RoadDetailViewModel(roadId)
+    val roadDetailViewModel = WarningsViewModel(roadId)
+    roadDetailViewModel.refresh()
     val roadsState: State<RoadViewModelData> =
         roadDetailViewModel.getLiveData(roadId).collectAsState(
             roadDetailViewModel.getRoadState(roadId),
