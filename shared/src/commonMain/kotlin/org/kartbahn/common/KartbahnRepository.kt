@@ -1,5 +1,6 @@
 package org.kartbahn.common
 
+import io.ktor.client.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.datetime.LocalDateTime
@@ -111,29 +112,39 @@ class KartbahnRepository : KoinComponent {
             return emptyList()
         }
         return kartbahnApi.getWarnings(roadId).warning!!.map { roadEventComposed ->
-            val startTimeStamp: LocalDateTimeHolder =
+            val startTimeStamp =
                 convertDateTime(roadEventComposed.item1.startTimestamp ?: "")
             with(roadEventComposed.item0) {
                 Warning(
                     identifier ?: "",
                     title ?: "",
                     subtitle ?: "",
-                    startTimeStamp.timestamp
+                    startTimeStamp
                 )
             }
         }
     }
 
-    private fun convertDateTime(startTimeStampStr: String): LocalDateTimeHolder =
+    private fun convertDateTime(startTimeStampStr: String): LocalDateTime =
         if (startTimeStampStr.isNotBlank()) {
-            val localDateTimeHolderJsonStr = "{\"timestamp\":\"$startTimeStampStr\"}"
+            // TODO dirty hack ignores timezone offset
+            val cutOffOffset = startTimeStampStr.substringBefore("+")
+            val localDateTimeHolderJsonStr = "{\"timestamp\":\"$cutOffOffset\"}"
             try {
-                Json.decodeFromString(getDeserializer(), localDateTimeHolderJsonStr)
+                // convert and manually add 2 hours
+                with(
+                    Json.decodeFromString(
+                        getDeserializer(),
+                        localDateTimeHolderJsonStr
+                    ).timestamp
+                ) {
+                    LocalDateTime(year, monthNumber, dayOfMonth, hour + 2, minute, second)
+                }
             } catch (e: Exception) {
-                LocalDateTimeHolder(LocalDateTime(1970, 1, 1, 0, 0))
+                LocalDateTime(1970, 1, 1, 0, 0)
             }
         } else {
-            LocalDateTimeHolder(LocalDateTime(1970, 1, 1, 0, 0))
+            LocalDateTime(1970, 1, 1, 0, 0)
         }
 
 
