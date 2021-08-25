@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5CC4C6A44C57A393DBAA8899 /* libPods-kartbahn (iOS).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B22383636F9ADE3A0889269 /* libPods-kartbahn (iOS).a */; };
+		CB111BB026D6F7E60099B2E6 /* WarningsElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB111BAF26D6F7E60099B2E6 /* WarningsElementView.swift */; };
+		CB111BB126D6F7E60099B2E6 /* WarningsElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB111BAF26D6F7E60099B2E6 /* WarningsElementView.swift */; };
+		CB111BB326D6F9DD0099B2E6 /* WarningsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB111BB226D6F9DD0099B2E6 /* WarningsListView.swift */; };
+		CB111BB426D6F9DD0099B2E6 /* WarningsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB111BB226D6F9DD0099B2E6 /* WarningsListView.swift */; };
 		CBE0B06B26D4187000C4411B /* RoadListElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B06A26D4187000C4411B /* RoadListElementView.swift */; };
 		CBE0B06C26D4187000C4411B /* RoadListElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B06A26D4187000C4411B /* RoadListElementView.swift */; };
 		CBE0B06E26D4192D00C4411B /* RoadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B06D26D4192D00C4411B /* RoadListView.swift */; };
@@ -33,6 +37,8 @@
 /* Begin PBXFileReference section */
 		7B22383636F9ADE3A0889269 /* libPods-kartbahn (iOS).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kartbahn (iOS).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14626D98814D90E7A4F7914 /* Pods-kartbahn (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).debug.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		CB111BAF26D6F7E60099B2E6 /* WarningsElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsElementView.swift; sourceTree = "<group>"; };
+		CB111BB226D6F9DD0099B2E6 /* WarningsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsListView.swift; sourceTree = "<group>"; };
 		CBE0B06A26D4187000C4411B /* RoadListElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListElementView.swift; sourceTree = "<group>"; };
 		CBE0B06D26D4192D00C4411B /* RoadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadListView.swift; sourceTree = "<group>"; };
 		CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobahnNumberView.swift; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 				CBE0B06D26D4192D00C4411B /* RoadListView.swift */,
 				CBE0B06A26D4187000C4411B /* RoadListElementView.swift */,
 				CBE0B08626D45BEF00C4411B /* AutobahnNumberView.swift */,
+				CB111BB226D6F9DD0099B2E6 /* WarningsListView.swift */,
+				CB111BAF26D6F7E60099B2E6 /* WarningsElementView.swift */,
 				D806956226D196F8008A537E /* Assets.xcassets */,
 				D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */,
 				CBE0B08926D5033500C4411B /* WarningsPublisher.swift */,
@@ -277,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB111BB026D6F7E60099B2E6 /* WarningsElementView.swift in Sources */,
 				D806957526D196F8008A537E /* ContentView.swift in Sources */,
 				D806957326D196F8008A537E /* kartbahnApp.swift in Sources */,
 				CBE0B06E26D4192D00C4411B /* RoadListView.swift in Sources */,
@@ -285,6 +294,7 @@
 				CBE0B08A26D5033500C4411B /* WarningsPublisher.swift in Sources */,
 				CBE0B06B26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08726D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
+				CB111BB326D6F9DD0099B2E6 /* WarningsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB111BB126D6F7E60099B2E6 /* WarningsElementView.swift in Sources */,
 				D806957626D196F8008A537E /* ContentView.swift in Sources */,
 				D806957426D196F8008A537E /* kartbahnApp.swift in Sources */,
 				CBE0B06F26D4192D00C4411B /* RoadListView.swift in Sources */,
@@ -300,6 +311,7 @@
 				CBE0B08B26D5033500C4411B /* WarningsPublisher.swift in Sources */,
 				CBE0B06C26D4187000C4411B /* RoadListElementView.swift in Sources */,
 				CBE0B08826D45BEF00C4411B /* AutobahnNumberView.swift in Sources */,
+				CB111BB426D6F9DD0099B2E6 /* WarningsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
