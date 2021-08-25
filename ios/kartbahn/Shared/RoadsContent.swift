@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import shared
 
 class Provider<T>: ObservableObject, RandomAccessCollection {
@@ -26,22 +27,23 @@ class Provider<T>: ObservableObject, RandomAccessCollection {
     }
 }
 
-class SwiftRoadsViewModel: Provider<RoadViewModelData> {
+class RoadsPublisher: ObservableObject {
+    @Published var roads = [RoadViewModelData]()
 }
 
-class RoadsPreviewModel: SwiftRoadsViewModel {
+class RoadsPreviewPublisher: RoadsPublisher {
     override init() {
         super.init()
-
-        self.storage = [RoadViewModelData(name: "A1",
-                                          warnings: [WarningViewModelData(name: "This is a warning")]),
-                        RoadViewModelData(name: "A4", warnings: []),
-                        RoadViewModelData(name: "A61", warnings: []),
-                        RoadViewModelData(name: "A555", warnings: [])]
+        
+        roads = [RoadViewModelData(name: "A1",
+                               warnings: [WarningViewModelData(name: "This is a warning")]),
+             RoadViewModelData(name: "A4", warnings: []),
+             RoadViewModelData(name: "A61", warnings: []),
+             RoadViewModelData(name: "A555", warnings: [])]
     }
 }
 
-class RoadsLiveViewModel: SwiftRoadsViewModel {
+class RoadsLivePublisher: RoadsPublisher {
     override init() {
         super.init()
         let viewModel = RoadsViewModel.Companion.init().create()
@@ -50,7 +52,7 @@ class RoadsLiveViewModel: SwiftRoadsViewModel {
         roadsStateCommonFlow.watch { roadState in
             if let roadState = roadState {
                 self.objectWillChange.send()
-                self.storage = roadState.roads
+                self.roads = roadState.roads
             }
         }
     }
