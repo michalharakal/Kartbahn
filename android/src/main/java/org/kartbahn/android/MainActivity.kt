@@ -3,6 +3,7 @@ package org.kartbahn.android
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import org.kartbahn.presentation.MainScreen
 import org.kartbahn.presentation.RoadsList
 import org.kartbahn.presentation.RoadsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         initClient()
 
         setContent {
-            RoadsList(roadsViewModel)
+            MainScreen(roadsViewModel)
         }
     }
 

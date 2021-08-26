@@ -20,6 +20,10 @@ import org.kartbahn.api.LocalDateTimeHolder
 
 class KartbahnRepository : KoinComponent {
 
+    init {
+        logger(LogLevel.INFO, "KartbahnRepository", "constructor")
+    }
+
     private val kartbahnApi: KartbahnApi by inject()
 
     inner class RoadsStateModel : ValueModel<Roads>(Roads(emptyList()))
@@ -40,7 +44,8 @@ class KartbahnRepository : KoinComponent {
         }
     }
 
-    suspend fun fetchRoad(roadId: String) {
+    suspend fun fetchRoad(roadId: String):Road {
+        logger(LogLevel.INFO, "KartbahnRepository", "fetchRoad $roadId")
         val result = getWarnings(roadId)
         val oldRoads = _roadsStateModel.model.value
         _roadsStateModel.setValue(
@@ -67,11 +72,11 @@ class KartbahnRepository : KoinComponent {
 
             )
         )
-
+        return _roadsStateModel.model.value.roads.first { road -> road.name == roadId }
     }
 
     suspend fun fetchFromNetwork(): DataState<org.kartbahn.api.models.Roads> {
-        logger(LogLevel.INFO, "KartbahnRepository", "getCommonFlowFromIos")
+        logger(LogLevel.INFO, "KartbahnRepository", "fetchFromNetwork")
 
         return try {
             val roads = kartbahnApi.getRoads()
@@ -91,7 +96,7 @@ class KartbahnRepository : KoinComponent {
                 DataState(empty = false)
             }
         } catch (e: Exception) {
-            logger(LogLevel.ERROR, "KartbahnRepository", "Error downloading breed list", e)
+            logger(LogLevel.ERROR, "KartbahnRepository", "Error downloading roads list", e)
             DataState(exception = "Unable to download roads list")
         }
     }

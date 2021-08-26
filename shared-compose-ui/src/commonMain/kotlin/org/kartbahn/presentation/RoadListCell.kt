@@ -1,11 +1,10 @@
 package org.kartbahn.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,15 +21,23 @@ import androidx.compose.ui.unit.dp
 import org.kartbahn.presentation.features.roads.model.RoadViewModelData
 
 @Composable
-fun RoadListCell(roadId: String) {
-    val roadDetailViewModel = WarningsViewModel(roadId)
-    roadDetailViewModel.refresh()
-    val roadsState: State<RoadViewModelData> =
-        roadDetailViewModel.getLiveData(roadId).collectAsState(
-            roadDetailViewModel.getRoadState(roadId),
-            roadDetailViewModel.clientScope.coroutineContext
-        )
-    Row {
+fun RoadListCell(
+    roadsViewModel: RoadsViewModel,
+    road: RoadViewModelData,
+    selectedRoad: RoadViewModelData?,
+    roadSelected: (person: RoadViewModelData) -> Unit
+) {
+    LaunchedEffect(true) {
+        roadsViewModel.refresh(road.name)
+    }
+
+    val isSelected = road.name == (selectedRoad?.name ?: "")
+
+    Row(
+        modifier = Modifier.fillMaxWidth().clickable(onClick = { roadSelected(road) })
+            .padding(8.dp).background(if (isSelected) Color.DarkGray else Color.LightGray),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Box(
             modifier = Modifier.size(width = 100.dp, height = 60.dp).padding(10.dp)
                 .clip(HighwaySignShape())
@@ -38,17 +45,17 @@ fun RoadListCell(roadId: String) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                roadsState.value.name,
+                road.name,
                 fontWeight = FontWeight.W900,
                 color = Color.White,
                 textAlign = TextAlign.Center
             )
         }
         Text(
-            if (roadsState.value.warningsCount == 0) {
+            if (road.warningsCount == 0) {
                 "Keine Meldungen"
             } else {
-                roadsState.value.warningsCount.toString()
+                road.warningsCount.toString()
             },
             textAlign = TextAlign.Center
         )

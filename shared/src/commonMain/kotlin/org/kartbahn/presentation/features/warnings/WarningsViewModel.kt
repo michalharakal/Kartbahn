@@ -20,9 +20,36 @@ import kotlin.native.concurrent.ThreadLocal
 class WarningsViewModel(private val roadId: String) : CommonViewModel(), KoinComponent {
     private val repository: KartbahnRepository by inject()
 
-    val road: Flow<WarningsViewModelData> = repository.roadsStateModel.map { roads: Roads ->
-        val road = roads.roads.first { road -> road.name == roadId }
-        WarningsViewModelData(road.name, road.warnings.map { warning ->
+    val warnings: Flow<WarningsViewModelData> = repository.roadsStateModel.map { roads: Roads ->
+        val road = roads.roads.firstOrNull { road -> road.name == roadId }
+        if (road != null) {
+            WarningsViewModelData(road.name, road.warnings.map { warning ->
+                WarningViewModelData(
+                    warningId = warning.warningId,
+                    title = warning.title,
+                    subtitle = warning.subtitle,
+                    start = warning.start
+                )
+            })
+        } else {
+            WarningsViewModelData("", emptyList())
+        }
+    }
+
+    @Suppress("unused")
+    fun getCommonFlowFromIos(roadId: String): CFlow<WarningsViewModelData> {
+        clientScope.launch {
+            logger(LogLevel.INFO, "WarningsViewModel", "getCommonFlowFromIos $roadId")
+            repository.fetchRoad(roadId)
+        }
+        return warnings.asCommonFlow()
+    }
+
+    fun getLiveData(): CFlow<WarningsViewModelData> = warnings.asCommonFlow()
+
+    fun getRoadState(roadId: String): WarningsViewModelData {
+        val roadState = repository.getRoadsState(roadId)
+        return WarningsViewModelData(roadState.name, roadState.warnings.map { warning ->
             WarningViewModelData(
                 warningId = warning.warningId,
                 title = warning.title,
@@ -32,28 +59,9 @@ class WarningsViewModel(private val roadId: String) : CommonViewModel(), KoinCom
         })
     }
 
-    @Suppress("unused")
-    fun getCommonFlowFromIos(roadId: String): CFlow<WarningsViewModelData> {
-        clientScope.launch {
-            logger(LogLevel.INFO, "WarningsViewModel", "getCommonFlowFromIos $roadId")
-            repository.fetchRoad(roadId)
-        }
-        return road.asCommonFlow()
-    }
-
-    fun getLiveData(roadId: String): CFlow<RoadViewModelData> =
-        repository.getRoadObservable(roadId).map { road ->
-            RoadViewModelData(road.name, road.warnings.size)
-        }.asCommonFlow()
-
-    fun getRoadState(roadId: String): RoadViewModelData {
-        val roadState = repository.getRoadsState(roadId)
-        return RoadViewModelData(roadState.name, roadState.warnings.size)
-    }
-
     fun refresh() {
         clientScope.launch {
-            logger(LogLevel.INFO, "WarningsViewModel", "getCommonFlowFromIos $roadId")
+            logger(LogLevel.INFO, "WarningsViewModel", "refresh $roadId")
             repository.fetchRoad(roadId)
         }
     }
