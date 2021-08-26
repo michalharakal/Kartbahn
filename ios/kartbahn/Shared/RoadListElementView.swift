@@ -9,17 +9,18 @@ import SwiftUI
 import shared
 
 struct RoadListElementDetail: View {
-    @State var road: RoadViewModelData
+    @State var name: String
+    @State var warningsCount: Int
     var body: some View {
         HStack (alignment: .center) {
-            AutobahnNumberView(number: road.name)
+            AutobahnNumberView(number: name)
             Spacer()
 
             Text("Verkehrsmeldungen:")
-            if road.warningsCount == 0 {
+            if warningsCount == 0 {
                 Text("Keine")
             } else {
-                Text("\(road.warningsCount)")
+                Text("\(warningsCount)")
             }
         }
     }
@@ -31,7 +32,7 @@ struct RoadListElementView: View {
         let warnings = WarningsLivePublisher(name: road.name)
 
         NavigationLink(destination: WarningsListView(warningsPublisher: warnings)) {
-            RoadListElementDetail(road: road)
+            RoadListElementDetail(name: road.name, warningsCount: warnings.warnings.count)
         }
     }
 }
