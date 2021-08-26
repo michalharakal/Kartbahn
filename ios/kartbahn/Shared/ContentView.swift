@@ -9,7 +9,7 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    @State var roadsPublisher = RoadsLivePublisher()
+    @StateObject var roadsPublisher = RoadsLivePublisher()
 
     var body: some View {
         NavigationView {
