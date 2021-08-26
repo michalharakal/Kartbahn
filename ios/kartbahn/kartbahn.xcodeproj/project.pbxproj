@@ -26,8 +26,6 @@
 		D806957626D196F8008A537E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806956126D196F6008A537E /* ContentView.swift */; };
 		D806957726D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
 		D806957826D196F8008A537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D806956226D196F8008A537E /* Assets.xcassets */; };
-		D849416926D2B18B0071FC2A /* commonMain in Resources */ = {isa = PBXBuildFile; fileRef = D849416726D2B18B0071FC2A /* commonMain */; };
-		D849416A26D2B18B0071FC2A /* iOSMain in Resources */ = {isa = PBXBuildFile; fileRef = D849416826D2B18B0071FC2A /* iOSMain */; };
 		D88B318026D1AA4900525B26 /* RoadsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */; };
 		D88B318126D1AA4900525B26 /* RoadsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */; };
 		D88B318726D25D8900525B26 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B318626D25D8900525B26 /* Koin.swift */; };
@@ -51,8 +49,8 @@
 		D806956F26D196F8008A537E /* kartbahn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kartbahn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D806957126D196F8008A537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D806957226D196F8008A537E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		D849416726D2B18B0071FC2A /* commonMain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = commonMain; path = ../../../shared/src/commonMain; sourceTree = "<group>"; };
-		D849416826D2B18B0071FC2A /* iOSMain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOSMain; path = ../../../shared/src/iOSMain; sourceTree = "<group>"; };
+		D849416726D2B18B0071FC2A /* commonMain */ = {isa = PBXFileReference; lastKnownFileType = text; name = commonMain; path = ../../shared/src/commonMain; sourceTree = "<group>"; };
+		D849416826D2B18B0071FC2A /* iOSMain */ = {isa = PBXFileReference; lastKnownFileType = text; name = iOSMain; path = ../../shared/src/iOSMain; sourceTree = "<group>"; };
 		D88B317F26D1AA4900525B26 /* RoadsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsPublisher.swift; sourceTree = "<group>"; };
 		D88B318626D25D8900525B26 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		E9D4172E882FB959F25172CB /* Pods-kartbahn (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kartbahn (iOS).release.xcconfig"; path = "Target Support Files/Pods-kartbahn (iOS)/Pods-kartbahn (iOS).release.xcconfig"; sourceTree = "<group>"; };
@@ -239,8 +237,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D849416A26D2B18B0071FC2A /* iOSMain in Resources */,
-				D849416926D2B18B0071FC2A /* commonMain in Resources */,
 				D806957726D196F8008A537E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
