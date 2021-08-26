@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AutobahnNumberView: View {
-    @State var number: String
+    var number: String
     var body: some View {
         Image("Zeichen_405")
             .resizable()
