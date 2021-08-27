@@ -27,12 +27,8 @@ struct RoadListElementDetail: View {
 
 struct RoadListElementView: View {
     let road: RoadViewModelData
-    @StateObject private var warningsProvider: WarningsPublisher
+    @ObservedObject var warningsProvider: WarningsPublisher
 
-    init(road: RoadViewModelData) {
-        self.road = road
-        _warningsProvider = StateObject(wrappedValue: WarningsLivePublisher(name: road.name))
-    }
     var body: some View {
 
         let content = RoadListElementDetail(name: road.name, count: warningsProvider.warnings.count)
@@ -48,6 +44,7 @@ struct RoadListElementView: View {
 
 struct RoadListElementView_Previews: PreviewProvider {
     static var previews: some View {
-        RoadListElementView(road: RoadViewModelData(name: "A4", warningsCount: 2))
+        let roadModel = RoadViewModelData(name: "A4", warningsCount: 2)
+        RoadListElementView(road: roadModel, warningsProvider: WarningsPreviewPublisher())
     }
 }
