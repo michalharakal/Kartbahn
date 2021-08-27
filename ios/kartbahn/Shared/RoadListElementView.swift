@@ -10,17 +10,17 @@ import shared
 
 struct RoadListElementDetail: View {
     var name: String
-    @ObservedObject var warningsData: WarningsPublisher
+    var count: Int
     var body: some View {
         HStack (alignment: .center) {
             AutobahnNumberView(number: name)
             Spacer()
 
             Text("Verkehrsmeldungen:")
-            if warningsData.warnings.count == 0 {
+            if count == 0 {
                 Text("Keine")
             } else {
-                Text("\(warningsData.warnings.count)")
+                Text("\(count)")
             }
         }
     }
@@ -28,11 +28,16 @@ struct RoadListElementDetail: View {
 
 struct RoadListElementView: View {
     let road: RoadViewModelData
-    var body: some View {
-        let warnings = WarningsLivePublisher(name: road.name)
+    @StateObject private var warningsProvider: WarningsPublisher
 
-        NavigationLink(destination: WarningsListView(warningsPublisher: warnings)) {
-            RoadListElementDetail(name: road.name, warningsData: warnings)
+    init(road: RoadViewModelData) {
+        self.road = road
+        _warningsProvider = StateObject(wrappedValue: WarningsLivePublisher(name: road.name))
+    }
+    var body: some View {
+
+        NavigationLink(destination: WarningsListView(warningsPublisher: warningsProvider)) {
+            RoadListElementDetail(name: road.name, count: warningsProvider.warnings.count)
         }
     }
 }
