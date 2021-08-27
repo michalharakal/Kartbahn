@@ -147,7 +147,7 @@
 				D849416726D2B18B0071FC2A /* commonMain */,
 				D849416826D2B18B0071FC2A /* iOSMain */,
 			);
-			path = KotlinDebug;
+			name = KotlinDebug;
 			sourceTree = "<group>";
 		};
 		D960BB63D2179A0123DC06C7 /* Frameworks */ = {
