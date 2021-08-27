@@ -36,8 +36,13 @@ struct RoadListElementView: View {
     }
     var body: some View {
 
-        NavigationLink(destination: WarningsListView(warningsPublisher: warningsProvider)) {
-            RoadListElementDetail(name: road.name, count: warningsProvider.warnings.count)
+        let content = RoadListElementDetail(name: road.name, count: warningsProvider.warnings.count)
+        if warningsProvider.warnings.count == 0 {
+            content
+        } else {
+            NavigationLink(destination: WarningsListView(warningsPublisher: warningsProvider)) {
+                content
+            }
         }
     }
 }
