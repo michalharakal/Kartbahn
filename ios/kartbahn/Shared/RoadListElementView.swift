@@ -9,19 +9,18 @@ import SwiftUI
 import shared
 
 struct RoadListElementDetail: View {
-    var name: String
-    var count: Int
+    let name: String
+    let count: Int
     var body: some View {
         HStack (alignment: .center) {
             AutobahnNumberView(number: name)
-            Spacer()
 
-            Text("Verkehrsmeldungen:")
             if count == 0 {
-                Text("Keine")
+                Text("Keine Meldungen")
             } else {
-                Text("\(count)")
+                Text("Meldungen: \(count)")
             }
+            Spacer()
         }
     }
 }
