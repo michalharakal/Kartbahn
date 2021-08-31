@@ -1,5 +1,5 @@
 buildscript {
-    val kotlin_version by extra("1.5.21")
+    val kotlin_version by extra("1.5.30")
     repositories {
         google()
         mavenCentral()
@@ -14,7 +14,7 @@ buildscript {
         // __KOTLIN_COMPOSE_VERSION__
         classpath(kotlin("gradle-plugin", version = kotlin_version))
         classpath(kotlin("serialization", version = kotlin_version))
-        classpath("org.jetbrains.compose:compose-gradle-plugin:1.0.0-alpha4-build315")
+        classpath("org.jetbrains.compose:compose-gradle-plugin:1.0.0-alpha4-build328")
         //classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0")
         //classpath("org.jmailen.gradle:kotlinter-gradle:3.4.5")
 
@@ -30,7 +30,7 @@ allprojects {
             google()
             mavenCentral()
             maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-            maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers")
+     //       maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers")
         }
     }
 }

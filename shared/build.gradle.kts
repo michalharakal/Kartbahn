@@ -7,7 +7,6 @@ plugins {
     kotlin("native.cocoapods")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dev.icerock.mobile.multiplatform-network-generator")
-    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
 mokoNetwork {
@@ -21,15 +20,9 @@ mokoNetwork {
 
 version = "0.0.1"
 
-multiplatformSwiftPackage {
-    packageName("Kartbahn")
-    swiftToolsVersion("5.3")
-    targetPlatforms {
-        iOS { v("13") }
-    }
-}
-
 kotlin {
+    //iosSimulatorArm64()
+
     val sdkName: String? = System.getenv("SDK_NAME")
 
     val isiOSDevice = sdkName.orEmpty().startsWith("iphoneos")
@@ -67,18 +60,18 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt")
-                implementation("io.ktor:ktor-utils:1.6.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
+                implementation("io.ktor:ktor-utils:1.6.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
 
-                implementation("io.ktor:ktor-client-core:1.6.1")
-                implementation("io.ktor:ktor-client-json:1.6.0")
-                implementation("io.ktor:ktor-client-logging:1.6.0")
-                implementation("io.ktor:ktor-client-serialization:1.6.0")
+                implementation("io.ktor:ktor-client-core:1.6.3")
+                implementation("io.ktor:ktor-client-json:1.6.3")
+                implementation("io.ktor:ktor-client-logging:1.6.3")
+                implementation("io.ktor:ktor-client-serialization:1.6.3")
 
                 implementation("io.insert-koin:koin-core:3.1.2")
 
-                implementation("co.touchlab:stately-common:1.1.7")
+                implementation("co.touchlab:stately-common:1.1.10")
             }
         }
         val commonTest by getting {
@@ -90,14 +83,14 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.3.1")
-                api("androidx.core:core-ktx:1.6.0")
-                implementation("io.ktor:ktor-client-okhttp:1.6.0")
+                api("androidx.core:core-ktx:1.6.3")
+                implementation("io.ktor:ktor-client-okhttp:1.6.3")
 
                 val lifecycleVersion = "2.2.0"
                 implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
                 implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
-                implementation("org.slf4j:slf4j-api:1.7.30")
+                implementation("org.slf4j:slf4j-api:1.7.32")
             }
         }
         val androidTest by getting {
@@ -108,8 +101,8 @@ kotlin {
 
         val desktopMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-apache:1.6.0")
-                implementation("org.slf4j:slf4j-api:1.7.30")
+                implementation("io.ktor:ktor-client-apache:1.6.3")
+                implementation("org.slf4j:slf4j-api:1.7.32")
             }
         }
         val desktopTest by getting {
@@ -131,18 +124,25 @@ kotlin {
 
         val iOSMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:1.6.0")
+                implementation("io.ktor:ktor-client-ios:1.6.3")
             }
         }
+        /*
+
+        val iosSimulatorArm64Main by getting{
+            dependsOn(iOSMain)
+        }
+
+         */
     }
 }
 
 android {
-    compileSdk = 30
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
-        targetSdk = 30
+        targetSdk = 31
     }
 }
 

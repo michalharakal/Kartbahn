@@ -9,7 +9,7 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="org.kartbahn.android.MainActivity">
+        <activity android:name="org.kartbahn.android.MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
