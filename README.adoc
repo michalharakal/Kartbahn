@@ -19,3 +19,11 @@ include::docs/modules/ROOT/pages/techstack.adoc[leveloffset=+1]
 
 include::docs/modules/ROOT/pages/screenshots.adoc[leveloffset=+1]
 
+
+== Publishing
+
+Even being an early stage, it can be usefull to have parts of API avaliable as maven artifact.
+
+. `git commit -am "Prepare for release X.Y.Z."` (where X.Y.Z is the new version)
+. `git tag -a X.Y.Z -m "Version X.Y.Z"` (where X.Y.Z is the new version)
+. `git push && git push --tags`
